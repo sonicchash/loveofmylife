@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Laura, Will You Be My Valentine?</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: 'Arial', sans-serif;
+    }
+
+    body {
+      margin: 0;
+      height: 100vh;
+      background: url("background.jpg") no-repeat center center/cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      text-align: center;
+      backdrop-filter: blur(2px);
+    }
+
+    .card {
+      background: rgba(0, 0, 0, 0.55);
+      padding: 40px;
+      border-radius: 20px;
+      max-width: 400px;
+    }
+
+    h1 {
+      font-size: 2.2em;
+      margin-bottom: 20px;
+    }
+
+    p {
+      margin-bottom: 20px;
+      font-size: 1em;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+    button {
+      padding: 15px 30px;
+      font-size: 1.1em;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      background: #ff5fa2;
+      color: white;
+      transition: transform 0.2s, background 0.2s;
+    }
+
+    button:hover {
+      transform: scale(1.1);
+      background: #ff2f8e;
+    }
+
+    input[type="file"] {
+      margin-top: 15px;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <h1>Laura 💕</h1>
+    <p>Will you be my Valentine?</p>
+
+    <input type="file" accept="audio/*" id="musicUpload" />
+
+    <div class="buttons">
+      <button onclick="goYes()">Yes 💖</button>
+      <button onclick="goYes()">Yes 😍</button>
+    </div>
+
+    <audio id="audio" loop></audio>
+  </div>
+
+  <script>
+    const upload = document.getElementById("musicUpload");
+    const audio = document.getElementById("audio");
+
+    upload.addEventListener("change", function () {
+      const file = this.files[0];
+      if (file) {
+        audio.src = URL.createObjectURL(file);
+        audio.play();
+      }
+    });
+
+    function goYes() {
+      window.location.href =
+        "https://www.google.com/travel/flights?gl=US&hl=en-US";
+    }
+  </script>
+
+</body>
+</html>
